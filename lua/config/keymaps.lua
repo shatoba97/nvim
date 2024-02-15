@@ -29,3 +29,9 @@ keymap.set("n", "<leader>qS", "<cmd>only<cr>", { desc = "Close all other splits"
 
 keymap.set("n", "<leader>qc", ":bd<CR>", { noremap = true, silent = true, desc = "Close current buff" })
 keymap.set("n", "<leader>cj", ":call GotoJump()<cr>", { noremap = true, silent = true, desc = "Jumps" })
+keymap.set("n", "<leader>cp", function()
+  local id = require("window-picker").pick_window()
+  if id then
+    vim.api.nvim_set_current_win(id)
+  end
+end, { noremap = true, desc = "Pick window", silent = false })
