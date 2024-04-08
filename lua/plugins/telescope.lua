@@ -33,12 +33,6 @@ return {
         false,
       },
       {
-        "<leader>gd",
-        "<cmd>Telescope git_bcommits<CR>",
-        mode = { "n" },
-        desc = "Show git file diff",
-      },
-      {
         "<leader>fd",
         "<cmd>Telescope lsp_definitions<CR>",
         mode = { "n" },
@@ -51,13 +45,13 @@ return {
         desc = "Find files",
       },
       {
-        "<leader>fw",
+        "<leader>fg",
         "<cmd>Telescope grep_string follow=true no_ignore=true hidden=true<cr>",
         mode = { "n", "v" },
-        desc = "Find word",
+        desc = "Find word everyvere",
       },
       {
-        "<leader>/",
+        "<leader>fw",
         "<cmd>Telescope live_grep<cr>",
         mode = { "n" },
         desc = "Live grep",

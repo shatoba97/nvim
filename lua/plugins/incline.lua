@@ -1,6 +1,7 @@
 return {
   "b0o/incline.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", 
+  'SmiteshP/nvim-navic'},
   config = function()
     require("incline").setup({
       window = {
