@@ -70,4 +70,34 @@ return {
       },
     }
   end,
+  config = function()
+    local telescope = require("telescope")
+
+    -- Custom path display function
+    local function filenameFirst(_, path)
+      local tail = vim.fs.basename(path)
+      local parent = vim.fs.dirname(path)
+      print(tail, "||", parent)
+      if parent == nil then
+        return tail
+      end
+      local t = {}
+      for str in string.gmatch(parent, "([^" .. "/" .. "]+)") do
+        table.insert(t, str)
+      end
+      return t[#t] .. "/" .. tail
+    end
+
+    -- Apply custom path display to Telescope pickers
+    telescope.setup({
+      pickers = {
+        git_status = {
+          path_display = filenameFirst,
+        },
+        find_files = {
+          path_display = filenameFirst,
+        },
+      },
+    })
+  end,
 }
